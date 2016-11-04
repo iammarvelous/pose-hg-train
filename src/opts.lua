@@ -9,6 +9,7 @@ local function parse(arg)
     cmd:text()
     cmd:option('-expID',       'default', 'Experiment ID')
     cmd:option('-dataset',        'mpii', 'Dataset choice: mpii | flic')
+    cmd:option('-projectDir',        '' , 'Project directory')
     cmd:option('-dataDir',  projectDir .. '/data', 'Data directory')
     cmd:option('-expDir',   projectDir .. '/exp',  'Experiments directory')
     cmd:option('-manualSeed',         -1, 'Manually set RNG seed')
@@ -66,6 +67,7 @@ local function parse(arg)
     opt.expDir = paths.concat(opt.expDir, opt.dataset)
     opt.dataDir = paths.concat(opt.dataDir, opt.dataset)
     opt.save = paths.concat(opt.expDir, opt.expID)
+    projectDir = opt.projectDir
     return opt
 end
 
